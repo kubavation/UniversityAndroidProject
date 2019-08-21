@@ -32,4 +32,6 @@ public class UserService {
     public static List<User> getUsers() {
         return users;
     }
+
+    private UserService() {}
 }
