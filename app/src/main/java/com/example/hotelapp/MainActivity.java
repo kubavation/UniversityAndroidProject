@@ -1,13 +1,21 @@
 package com.example.hotelapp;
 
+
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.hotelapp.fragments.HomeFragment;
+
+public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener {
+
     private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -18,9 +26,10 @@ public class MainActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
+                    addFragment(new HomeFragment(),false,"s");
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    //mTextMessage.setText(R.string.title_dashboard);
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
@@ -39,4 +48,19 @@ public class MainActivity extends AppCompatActivity {
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    public void addFragment(Fragment fragment, boolean addToBackStack, String tag) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+
+        if (addToBackStack) {
+            ft.addToBackStack(tag);
+        }
+        ft.replace(R.id.frameLayout, fragment, tag);
+        ft.commitAllowingStateLoss();
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
 }
