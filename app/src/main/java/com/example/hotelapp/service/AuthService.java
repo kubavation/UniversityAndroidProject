@@ -11,4 +11,12 @@ public class AuthService {
     }
 
 
+    public static void login(User user) {
+        if (!UserService.isUserExists(user))
+            throw new RuntimeException();
+        loggedIn = user;
+    }
+
+    private AuthService() {}
+
 }
