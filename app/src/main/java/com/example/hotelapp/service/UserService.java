@@ -21,6 +21,10 @@ public class UserService {
         users.add(user);
     }
 
+    public static boolean isUserExists(User user) {
+        return users.contains(user);
+    }
+
     private static boolean isUsernameExists(User user) {
         for (User u : users) {
             if (u.getUsername().equals(user.getUsername()))
