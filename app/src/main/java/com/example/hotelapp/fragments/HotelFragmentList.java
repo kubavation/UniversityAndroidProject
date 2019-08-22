@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.example.hotelapp.R;
 import com.example.hotelapp.fragments.dummy.DummyContent;
 import com.example.hotelapp.fragments.dummy.DummyContent.DummyItem;
+import com.example.hotelapp.model.Hotel;
 
 import java.util.List;
 
@@ -105,6 +106,6 @@ public class HotelFragmentList extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Hotel item);
     }
 }

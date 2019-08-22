@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.hotelapp.R;
 import com.example.hotelapp.fragments.HotelFragmentList.OnListFragmentInteractionListener;
 import com.example.hotelapp.fragments.dummy.DummyContent.DummyItem;
+import com.example.hotelapp.model.Hotel;
 
 import java.util.List;
 
@@ -17,12 +18,72 @@ import java.util.List;
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
+//public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecyclerViewAdapter.ViewHolder> {
+//
+//    private final List<DummyItem> mValues;
+//    private final OnListFragmentInteractionListener mListener;
+//
+//    public MyHotelRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+//        mValues = items;
+//        mListener = listener;
+//    }
+//
+//    @Override
+//    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+//        View view = LayoutInflater.from(parent.getContext())
+//                .inflate(R.layout.fragment_hotel_item, parent, false);
+//        return new ViewHolder(view);
+//    }
+//
+//    @Override
+//    public void onBindViewHolder(final ViewHolder holder, int position) {
+//        holder.mItem = mValues.get(position);
+//        holder.mIdView.setText(mValues.get(position).id);
+//        holder.mContentView.setText(mValues.get(position).content);
+//
+//        holder.mView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (null != mListener) {
+//                    // Notify the active callbacks interface (the activity, if the
+//                    // fragment is attached to one) that an item has been selected.
+//                    mListener.onListFragmentInteraction(holder.mItem);
+//                }
+//            }
+//        });
+//    }
+//
+//    @Override
+//    public int getItemCount() {
+//        return mValues.size();
+//    }
+//
+//    public class ViewHolder extends RecyclerView.ViewHolder {
+//        public final View mView;
+//        public final TextView mIdView;
+//        public final TextView mContentView;
+//        public DummyItem mItem;
+//
+//        public ViewHolder(View view) {
+//            super(view);
+//            mView = view;
+//            mIdView = (TextView) view.findViewById(R.id.item_number);
+//            mContentView = (TextView) view.findViewById(R.id.content);
+//        }
+//
+//        @Override
+//        public String toString() {
+//            return super.toString() + " '" + mContentView.getText() + "'";
+//        }
+//    }
+//}
+
 public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<Hotel> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyHotelRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyHotelRecyclerViewAdapter(List<Hotel> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -37,8 +98,8 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).getId());
+        holder.mContentView.setText(mValues.get(position).getName());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +122,7 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public Hotel mItem;
 
         public ViewHolder(View view) {
             super(view);

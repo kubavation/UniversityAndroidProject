@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.hotelapp.fragments.HomeFragment;
 import com.example.hotelapp.fragments.HotelFragmentList;
 import com.example.hotelapp.fragments.dummy.DummyContent;
+import com.example.hotelapp.model.Hotel;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener,
         HotelFragmentList.OnListFragmentInteractionListener {
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     }
 
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(Hotel item) {
 
     }
 }
