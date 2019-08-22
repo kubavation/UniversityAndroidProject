@@ -102,7 +102,7 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).getName());
         holder.mContentView.setText(mValues.get(position).getDesc());
-        holder.mId.setText(mValues.get(position).getId());
+    //    holder.mId.setText(mValues.get(position).getId());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,7 +125,7 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public final TextView mId;
+       /// public final TextView mId;
         public Hotel mItem;
 
         public ViewHolder(View view) {
@@ -133,7 +133,7 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
-            mId = view.findViewById(R.id.id);
+          //  mId = view.findViewById(R.id.id);
         }
 
         @Override
