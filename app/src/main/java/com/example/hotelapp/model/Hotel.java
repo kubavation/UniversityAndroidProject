@@ -9,12 +9,14 @@ public class Hotel {
     private String desc;
     private double[] coords;
     //todo city/country
+    private String imgSrc;
 
-    public Hotel(String name, String desc, double[] coords) {
+    public Hotel(String name, String desc, double[] coords, String imgSrc) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
         this.desc = desc;
         this.coords = coords;
+        this.imgSrc = imgSrc;
     }
 
     public String getName() {
@@ -31,5 +33,9 @@ public class Hotel {
 
     public String getId() {
         return id;
+    }
+
+    public String getImgSrc() {
+        return imgSrc;
     }
 }
