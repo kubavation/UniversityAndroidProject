@@ -70,7 +70,7 @@ public class HotelFragmentList extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyHotelRecyclerViewAdapter(HotelService.hotels, mListener));
+            recyclerView.setAdapter(new MyHotelRecyclerViewAdapter(HotelService.hotels, mListener,context));
         }
         return view;
     }

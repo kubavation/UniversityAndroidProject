@@ -1,9 +1,11 @@
 package com.example.hotelapp.fragments;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hotelapp.R;
@@ -13,6 +15,7 @@ import com.example.hotelapp.model.Hotel;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 /**
@@ -84,10 +87,13 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
 
     private final List<Hotel> mValues;
     private final OnListFragmentInteractionListener mListener;
+    private Context context;
 
-    public MyHotelRecyclerViewAdapter(List<Hotel> items, OnListFragmentInteractionListener listener) {
+    public MyHotelRecyclerViewAdapter(List<Hotel> items, OnListFragmentInteractionListener listener, Context context) {
         mValues = items;
         mListener = listener;
+        this.context = context;
+        System.out.println("!!!" + context);
     }
 
     @Override
@@ -102,7 +108,17 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).getName());
         holder.mContentView.setText(mValues.get(position).getDesc());
-    //    holder.mId.setText(mValues.get(position).getId());
+        holder.imgView.setImageResource(R.drawable.hotel1);
+
+        //holder.imgView.setImageResource();
+//        try {
+//            Field x = R.drawable.class.getField(mValues.get(position).getImgSrc());
+//            holder.imgView.setImageResource(x.getInt());
+//        } catch (NoSuchFieldException e) {
+//            e.printStackTrace();
+//        }
+
+        //    holder.mId.setText(mValues.get(position).getId());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +141,7 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
+        public final ImageView imgView;
        /// public final TextView mId;
         public Hotel mItem;
 
@@ -133,6 +150,8 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
+            imgView = view.findViewById(R.id.imageView2);
+
           //  mId = view.findViewById(R.id.id);
         }
 
