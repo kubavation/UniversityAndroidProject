@@ -14,6 +14,7 @@ import com.example.hotelapp.R;
 import com.example.hotelapp.fragments.dummy.DummyContent;
 import com.example.hotelapp.fragments.dummy.DummyContent.DummyItem;
 import com.example.hotelapp.model.Hotel;
+import com.example.hotelapp.service.HotelService;
 
 import java.util.List;
 
@@ -71,7 +72,7 @@ public class HotelFragmentList extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyHotelRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyHotelRecyclerViewAdapter(HotelService.hotels, mListener));
         }
         return view;
     }
