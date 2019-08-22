@@ -11,8 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.hotelapp.R;
-import com.example.hotelapp.fragments.dummy.DummyContent;
-import com.example.hotelapp.fragments.dummy.DummyContent.DummyItem;
 import com.example.hotelapp.model.Hotel;
 import com.example.hotelapp.service.HotelService;
 

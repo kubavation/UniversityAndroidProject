@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.example.hotelapp.R;
 import com.example.hotelapp.fragments.HotelFragmentList.OnListFragmentInteractionListener;
-import com.example.hotelapp.fragments.dummy.DummyContent.DummyItem;
+
 import com.example.hotelapp.model.Hotel;
 
 import java.util.List;
@@ -98,8 +98,8 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).getId());
-        holder.mContentView.setText(mValues.get(position).getName());
+        holder.mIdView.setText(mValues.get(position).getName());
+        holder.mContentView.setText(mValues.get(position).getDesc());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
