@@ -15,7 +15,18 @@ public class HotelService {
         hotels.add(new Hotel("testowy3","desc3",new double[]{51.02,33.03}));
     }
 
+    public static Hotel findHotelById(String id) {
+        for (Hotel hotel: hotels) {
+            if ( hotel.getId().equals(id))
+                return hotel;
+        }
+        return null;
+    }
 
+    public static void addHotel(Hotel hotel) {
+        //+validation
+        hotels.add(hotel);
+    }
 
 
 }
