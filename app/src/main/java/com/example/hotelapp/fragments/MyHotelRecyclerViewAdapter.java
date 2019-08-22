@@ -1,6 +1,7 @@
 package com.example.hotelapp.fragments;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,7 +109,13 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).getName());
         holder.mContentView.setText(mValues.get(position).getDesc());
-        holder.imgView.setImageResource(R.drawable.hotel1);
+
+        int img = context.getResources().getIdentifier(mValues.get(position).getImgSrc()
+                , "drawable", context.getPackageName());
+        System.out.println("-------------");
+        System.out.println(img);
+
+        holder.imgView.setImageResource(img);
 
         //holder.imgView.setImageResource();
 //        try {
