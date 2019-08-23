@@ -1,8 +1,9 @@
 package com.example.hotelapp.model;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class Hotel {
+public class Hotel implements Serializable {
 
     private String id;
     private String name;

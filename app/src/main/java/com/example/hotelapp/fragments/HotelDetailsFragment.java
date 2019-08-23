@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.hotelapp.R;
+import com.example.hotelapp.model.Hotel;
+
+import java.io.Serializable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,6 +58,12 @@ public class HotelDetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        System.out.println("HERE ????1");
+        Serializable obj = this.getArguments().getSerializable("hotel");
+        Hotel hotel = (Hotel) obj;
+        System.out.println(hotel);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -65,6 +74,9 @@ public class HotelDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        System.out.println("HERE ???2");
+
         return inflater.inflate(R.layout.fragment_hotel_details, container, false);
     }
 

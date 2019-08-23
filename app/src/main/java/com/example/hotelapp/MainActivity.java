@@ -13,11 +13,14 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.hotelapp.fragments.HomeFragment;
+import com.example.hotelapp.fragments.HotelDetailsFragment;
 import com.example.hotelapp.fragments.HotelFragmentList;
 import com.example.hotelapp.model.Hotel;
 
-public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener,
-        HotelFragmentList.OnListFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity
+        implements HomeFragment.OnFragmentInteractionListener,
+        HotelFragmentList.OnListFragmentInteractionListener,
+        HotelDetailsFragment.OnFragmentInteractionListener {
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         ft.commitAllowingStateLoss();
     }
 
+
     @Override
     public void onFragmentInteraction(Uri uri) {
 
@@ -66,5 +70,11 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     @Override
     public void onListFragmentInteraction(Hotel item) {
         System.out.println(item);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("hotel", item);
+        HotelDetailsFragment fragment = new HotelDetailsFragment();
+        fragment.setArguments(bundle);
+        System.out.println("SENT");
+        addFragment(fragment,false,"s");
     }
 }
