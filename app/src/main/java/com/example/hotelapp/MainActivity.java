@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         if (addToBackStack) {
             ft.addToBackStack(tag);
         }
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         ft.replace(R.id.frameLayout, fragment, tag);
         ft.commitAllowingStateLoss();
     }
