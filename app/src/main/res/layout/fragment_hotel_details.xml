@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".fragments.HotelDetailsFragment">
 
-
     <ImageView
         android:id="@+id/details_img"
         android:layout_width="353dp"

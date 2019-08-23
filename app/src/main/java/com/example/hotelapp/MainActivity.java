@@ -1,6 +1,7 @@
 package com.example.hotelapp;
 
 
+import android.app.ActionBar;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
@@ -9,6 +10,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -46,7 +48,32 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+    }
+
+    //???
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+//        switch (item.getItemId()) {
+//            case android.R.id.home:
+//                finish();
+//                return true;
+//        }
+        System.out.println("ON BACK");
+
+        for ( Fragment f : getSupportFragmentManager().getFragments() )
+            System.out.println(f.getId());
+
+        FragmentManager fm = getSupportFragmentManager();
+        //todo add animation + change incons in bottom on change
+        fm.popBackStack();
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 
     public void addFragment(Fragment fragment, boolean addToBackStack, String tag) {
@@ -56,9 +83,13 @@ public class MainActivity extends AppCompatActivity
         if (addToBackStack) {
             ft.addToBackStack(tag);
         }
+
         ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-        ft.replace(R.id.frameLayout, fragment, tag);
+        ft.replace(R.id.frameLayout, fragment, fragment.toString());
+        ft.addToBackStack(fragment.toString());
         ft.commitAllowingStateLoss();
+
+        System.out.println("ADDING TO BACKSTACK");
     }
 
 

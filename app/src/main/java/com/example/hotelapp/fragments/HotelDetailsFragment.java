@@ -88,7 +88,7 @@ public class HotelDetailsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_hotel_details, container, false);
         this.mView = view;
-        
+
         name = mView.findViewById(R.id.details_name);
         desc = mView.findViewById(R.id.details_desc);
         img = mView.findViewById(R.id.details_img);
