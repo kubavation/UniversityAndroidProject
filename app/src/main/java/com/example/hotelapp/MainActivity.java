@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity
         HotelFragmentList.OnListFragmentInteractionListener,
         HotelDetailsFragment.OnFragmentInteractionListener {
 
+    private BottomNavigationView navView;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -31,15 +33,17 @@ public class MainActivity extends AppCompatActivity
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    addFragment(new HomeFragment(),false,"s");
+                    addFragment(new HomeFragment(),true,"home_fragment");
                     return true;
                 case R.id.navigation_dashboard:
-                    addFragment(new HotelFragmentList(),false,"s");
+                    addFragment(new HotelFragmentList(),true,"list_fragment");
                     return true;
                 case R.id.navigation_notifications:
                     return true;
+                default:
+                    addFragment(new HomeFragment(),true,"home_fragment");
+                    return true;
             }
-            return false;
         }
     };
 
@@ -47,27 +51,50 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        final BottomNavigationView navView = findViewById(R.id.nav_view);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+            @Override
+            public void onBackStackChanged() {
+
+                Fragment x = getSupportFragmentManager().findFragmentByTag("home_fragment");
+                System.out.println(x);
+                if ( x != null && x.isVisible()) {
+                    System.out.println("CHANGED TRUE");
+                    navView.getMenu().getItem(0).setChecked(true);
+                } else {
+                    System.out.println("CHANGED FALSE");
+                }
+
+                System.out.println("TAGS:");
+                for ( Fragment f : getSupportFragmentManager().getFragments() )
+                    System.out.println(f.getTag());
+                System.out.println("----------");
+            }
+        });
     }
 
     //???
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case android.R.id.home:
-//                finish();
-//                return true;
-//        }
+
+        System.out.println(item.getItemId());
         System.out.println("ON BACK");
 
         for ( Fragment f : getSupportFragmentManager().getFragments() )
             System.out.println(f.getId());
 
         FragmentManager fm = getSupportFragmentManager();
-        //todo add animation + change incons in bottom on change
+        //todo change incons in bottom on change
+
         fm.popBackStack();
+
+    //        System.out.println(fm.getFragments().isEmpty());
+    //        if(fm.getFragments().isEmpty()) {
+    //            addFragment(new HomeFragment(), true, "s");
+    //        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -80,14 +107,14 @@ public class MainActivity extends AppCompatActivity
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
 
-        if (addToBackStack) {
-            ft.addToBackStack(tag);
-        }
+//        if (addToBackStack) {
+//            ft.addToBackStack(tag);
+//        }
 
         ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
                 android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-        ft.replace(R.id.frameLayout, fragment, fragment.toString());
-        ft.addToBackStack(null);
+        ft.replace(R.id.frameLayout, fragment, tag);
+        ft.addToBackStack(tag);
         ft.commitAllowingStateLoss();
 
         System.out.println("ADDING TO BACKSTACK");
@@ -107,6 +134,6 @@ public class MainActivity extends AppCompatActivity
         HotelDetailsFragment fragment = new HotelDetailsFragment();
         fragment.setArguments(bundle);
         System.out.println("SENT");
-        addFragment(fragment,false,"s");
+        addFragment(fragment,true,"details_fragment");
     }
 }
