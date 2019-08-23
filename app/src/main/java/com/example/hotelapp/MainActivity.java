@@ -59,19 +59,14 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onBackStackChanged() {
 
-                Fragment x = getSupportFragmentManager().findFragmentByTag("home_fragment");
-                System.out.println(x);
-                if ( x != null && x.isVisible()) {
-                    System.out.println("CHANGED TRUE");
+                System.out.println("BACKSTACK CHANGED");
+
+                Fragment home_fragment = getSupportFragmentManager().findFragmentByTag("home_fragment");
+                if ( home_fragment != null && home_fragment.isVisible()) {
                     navView.getMenu().getItem(0).setChecked(true);
-                } else {
-                    System.out.println("CHANGED FALSE");
                 }
 
-                System.out.println("TAGS:");
-                for ( Fragment f : getSupportFragmentManager().getFragments() )
-                    System.out.println(f.getTag());
-                System.out.println("----------");
+
             }
         });
     }
