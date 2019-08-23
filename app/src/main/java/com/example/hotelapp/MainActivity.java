@@ -84,9 +84,10 @@ public class MainActivity extends AppCompatActivity
             ft.addToBackStack(tag);
         }
 
-        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         ft.replace(R.id.frameLayout, fragment, fragment.toString());
-        ft.addToBackStack(fragment.toString());
+        ft.addToBackStack(null);
         ft.commitAllowingStateLoss();
 
         System.out.println("ADDING TO BACKSTACK");
