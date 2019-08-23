@@ -27,6 +27,8 @@ public class HotelDetailsFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private Hotel hotel;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -73,9 +75,7 @@ public class HotelDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
-        System.out.println("HERE ???2");
 
         return inflater.inflate(R.layout.fragment_hotel_details, container, false);
     }
@@ -102,6 +102,10 @@ public class HotelDetailsFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
     }
 
     /**
