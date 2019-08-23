@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.hotelapp.R;
 import com.example.hotelapp.model.Hotel;
@@ -28,6 +30,12 @@ public class HotelDetailsFragment extends Fragment {
     private static final String ARG_PARAM2 = "param2";
 
     private Hotel hotel;
+
+    private TextView name;
+    private TextView desc;
+    private ImageView img;
+
+    protected View mView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -65,6 +73,7 @@ public class HotelDetailsFragment extends Fragment {
         Serializable obj = this.getArguments().getSerializable("hotel");
         Hotel hotel = (Hotel) obj;
         System.out.println(hotel);
+        this.hotel = hotel;
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -75,9 +84,22 @@ public class HotelDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater,container,savedInstanceState);
+
+        View view = inflater.inflate(R.layout.fragment_hotel_details, container, false);
+        this.mView = view;
+        
+        name = mView.findViewById(R.id.details_name);
+        desc = mView.findViewById(R.id.details_desc);
+        img = mView.findViewById(R.id.details_img);
+        name.setText(hotel.getName());
+        desc.setText(hotel.getDesc());
+        int idImg = getActivity().getResources().getIdentifier(hotel.getImgSrc()
+                , "drawable", getActivity().getPackageName());
+        img.setImageResource(idImg);
 
 
-        return inflater.inflate(R.layout.fragment_hotel_details, container, false);
+        return mView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
