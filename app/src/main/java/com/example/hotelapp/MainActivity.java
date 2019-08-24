@@ -79,11 +79,13 @@ public class MainActivity extends AppCompatActivity
         System.out.println("ON BACK");
 
         for ( Fragment f : getSupportFragmentManager().getFragments() )
-            System.out.println(f.getId());
+            System.out.println(f.getTag());
+
+        System.out.println("------------");
 
         FragmentManager fm = getSupportFragmentManager();
-        //todo change incons in bottom on change
 
+        //todo add if current fragment is list then back button redirects to home fragment etc !
         fm.popBackStack();
 
     //        System.out.println(fm.getFragments().isEmpty());
