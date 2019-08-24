@@ -17,12 +17,14 @@ import android.widget.TextView;
 import com.example.hotelapp.fragments.HomeFragment;
 import com.example.hotelapp.fragments.HotelDetailsFragment;
 import com.example.hotelapp.fragments.HotelFragmentList;
+import com.example.hotelapp.fragments.MapFragment;
 import com.example.hotelapp.model.Hotel;
 
 public class MainActivity extends AppCompatActivity
         implements HomeFragment.OnFragmentInteractionListener,
         HotelFragmentList.OnListFragmentInteractionListener,
-        HotelDetailsFragment.OnFragmentInteractionListener {
+        HotelDetailsFragment.OnFragmentInteractionListener,
+        MapFragment.OnFragmentInteractionListener {
 
     private BottomNavigationView navView;
 
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity
                     addFragment(new HotelFragmentList(),true,"list_fragment");
                     return true;
                 case R.id.navigation_notifications:
+                    addFragment(new MapFragment(),true,"map_fragment");
                     return true;
                 default:
                     addFragment(new HomeFragment(),true,"home_fragment");

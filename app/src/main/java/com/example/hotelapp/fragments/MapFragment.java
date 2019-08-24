@@ -9,6 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.hotelapp.R;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -18,7 +24,7 @@ import com.example.hotelapp.R;
  * Use the {@link MapFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MapFragment extends Fragment {
+public class MapFragment extends Fragment implements OnMapReadyCallback {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,6 +35,8 @@ public class MapFragment extends Fragment {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    private GoogleMap map;
 
     public MapFragment() {
         // Required empty public constructor
@@ -59,13 +67,21 @@ public class MapFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        System.out.println("CREATING ");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        View x = inflater.inflate(R.layout.fragment_map, container, false);
+
+        SupportMapFragment mapFragment =
+                (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.frg);
+        mapFragment.getMapAsync(this);
+
+        return x;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -84,6 +100,17 @@ public class MapFragment extends Fragment {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
+        System.out.println("------------ ON MAP READY --------------");
+        map = googleMap;
+
+        LatLng test = new LatLng(19.169257,73.341601);
+        map.addMarker(new MarkerOptions().position(test).title("test"));
+        map.moveCamera(CameraUpdateFactory.newLatLng(test));
     }
 
     @Override
