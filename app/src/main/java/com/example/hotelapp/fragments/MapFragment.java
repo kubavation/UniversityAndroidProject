@@ -120,7 +120,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         //LatLng test = new LatLng(19.169257,73.341601);
         LatLng test = new LatLng(hotel.getCoords()[0],hotel.getCoords()[1]);
         map.addMarker(new MarkerOptions().position(test).title(hotel.getName()));
-        map.moveCamera(CameraUpdateFactory.newLatLng(test));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(test,10));
+        map.animateCamera(CameraUpdateFactory.zoomTo(10), 1000, null);
     }
 
     @Override
