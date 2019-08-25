@@ -9,12 +9,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.hotelapp.R;
+import com.example.hotelapp.model.Hotel;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.io.Serializable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -37,6 +40,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private OnFragmentInteractionListener mListener;
 
     private GoogleMap map;
+    private Hotel hotel;
 
     public MapFragment() {
         // Required empty public constructor
@@ -67,6 +71,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        Serializable obj = this.getArguments().getSerializable("hotel");
+        Hotel hotel = (Hotel) obj;
+        System.out.println(hotel);
+        this.hotel = hotel;
 
         System.out.println("CREATING ");
     }
@@ -108,8 +117,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         System.out.println("------------ ON MAP READY --------------");
         map = googleMap;
 
-        LatLng test = new LatLng(19.169257,73.341601);
-        map.addMarker(new MarkerOptions().position(test).title("test"));
+        //LatLng test = new LatLng(19.169257,73.341601);
+        LatLng test = new LatLng(hotel.getCoords()[0],hotel.getCoords()[1]);
+        map.addMarker(new MarkerOptions().position(test).title(hotel.getName()));
         map.moveCamera(CameraUpdateFactory.newLatLng(test));
     }
 
@@ -117,6 +127,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
     }
 
     /**
