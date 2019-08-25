@@ -4,9 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.hotelapp.R;
 
@@ -27,6 +31,10 @@ public class SearchFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    protected View mView;
+
+    private Button searchButton;
 
     private OnFragmentInteractionListener mListener;
 
@@ -65,8 +73,26 @@ public class SearchFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+
+        this.mView = view;
+
+        searchButton = mView.findViewById(R.id.searchButton);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle = new Bundle();
+                HotelFragmentList fragment = new HotelFragmentList();
+                fragment.setArguments(bundle);
+                System.out.println("SENT TO LIST");
+                addFragment(fragment,true,"list_fragment");
+
+            }
+        });
+
+        return mView;
+ }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
@@ -91,6 +117,25 @@ public class SearchFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
+    public void addFragment(Fragment fragment, boolean addToBackStack, String tag) {
+
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+
+//        if (addToBackStack) {
+//            ft.addToBackStack(tag);
+//        }
+
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        ft.replace(R.id.frameLayout, fragment, tag);
+        ft.addToBackStack(tag);
+        ft.commitAllowingStateLoss();
+
+        System.out.println("ADDING TO BACKSTACK");
+    }
+
 
     /**
      * This interface must be implemented by activities that contain this

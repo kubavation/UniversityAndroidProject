@@ -14,7 +14,9 @@ import com.example.hotelapp.R;
 import com.example.hotelapp.model.Hotel;
 import com.example.hotelapp.service.HotelService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A fragment representing a list of Items.
@@ -51,6 +53,7 @@ public class HotelFragmentList extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        System.out.println("HEREEEE");
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
@@ -61,6 +64,9 @@ public class HotelFragmentList extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hotel_list, container, false);
 
+        System.out.println("------- BUNDLE ---------");
+        System.out.println(getArguments());
+
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -70,8 +76,17 @@ public class HotelFragmentList extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyHotelRecyclerViewAdapter(HotelService.hotels, mListener,context));
-        }
+
+            if ( getArguments() == null)
+                recyclerView.setAdapter(new MyHotelRecyclerViewAdapter(HotelService.hotels, mListener,context));
+            else {
+                Map<String,Object> testMap = new HashMap<>();
+                testMap.put("COST",50);
+                recyclerView
+                        .setAdapter(new MyHotelRecyclerViewAdapter(HotelService.filterBy(testMap), mListener, context));
+            }
+
+            }
         return view;
     }
 
