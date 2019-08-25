@@ -4,9 +4,12 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +37,7 @@ public class HotelDetailsFragment extends Fragment {
     private TextView name;
     private TextView desc;
     private ImageView img;
+    private Button locationButton;
 
     protected View mView;
 
@@ -92,11 +96,28 @@ public class HotelDetailsFragment extends Fragment {
         name = mView.findViewById(R.id.details_name);
         desc = mView.findViewById(R.id.details_desc);
         img = mView.findViewById(R.id.details_img);
+
+        locationButton = mView.findViewById(R.id.locationButton);
+
         name.setText(hotel.getName());
         desc.setText(hotel.getDesc());
         int idImg = getActivity().getResources().getIdentifier(hotel.getImgSrc()
                 , "drawable", getActivity().getPackageName());
         img.setImageResource(idImg);
+
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("hotel", hotel);
+                MapFragment fragment = new MapFragment();
+                fragment.setArguments(bundle);
+                System.out.println("SENT TO MAP");
+                addFragment(fragment,true,"map_fragment");
+
+            }
+        });
 
 
         return mView;
@@ -129,6 +150,25 @@ public class HotelDetailsFragment extends Fragment {
     public Hotel getHotel() {
         return hotel;
     }
+
+    public void addFragment(Fragment fragment, boolean addToBackStack, String tag) {
+
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = manager.beginTransaction();
+
+//        if (addToBackStack) {
+//            ft.addToBackStack(tag);
+//        }
+
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        ft.replace(R.id.frameLayout, fragment, tag);
+        ft.addToBackStack(tag);
+        ft.commitAllowingStateLoss();
+
+        System.out.println("ADDING TO BACKSTACK");
+    }
+
 
     /**
      * This interface must be implemented by activities that contain this
