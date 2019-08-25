@@ -18,13 +18,15 @@ import com.example.hotelapp.fragments.HomeFragment;
 import com.example.hotelapp.fragments.HotelDetailsFragment;
 import com.example.hotelapp.fragments.HotelFragmentList;
 import com.example.hotelapp.fragments.MapFragment;
+import com.example.hotelapp.fragments.SearchFragment;
 import com.example.hotelapp.model.Hotel;
 
 public class MainActivity extends AppCompatActivity
         implements HomeFragment.OnFragmentInteractionListener,
         HotelFragmentList.OnListFragmentInteractionListener,
         HotelDetailsFragment.OnFragmentInteractionListener,
-        MapFragment.OnFragmentInteractionListener {
+        MapFragment.OnFragmentInteractionListener,
+        SearchFragment.OnFragmentInteractionListener {
 
     private BottomNavigationView navView;
 
