@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity
                     addFragment(new HotelFragmentList(),true,"list_fragment");
                     return true;
                 case R.id.navigation_notifications:
-                    addFragment(new MapFragment(),true,"map_fragment");
+                    addFragment(new SearchFragment(),true,"search_fragment");
                     return true;
                 default:
                     addFragment(new HomeFragment(),true,"home_fragment");
