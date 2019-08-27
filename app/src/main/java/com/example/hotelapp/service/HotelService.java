@@ -13,9 +13,9 @@ public class HotelService {
     public static List<Hotel> hotels = new ArrayList<>();
 
     static {
-        hotels.add(new Hotel("testowy","desc1",new double[]{51.759445,19.457216},"hotel1",50));
-        hotels.add(new Hotel("testowy2","desc2",new double[]{51.759445,19.457216},"hotel2",70));
-        hotels.add(new Hotel("testowy3","desc3",new double[]{51.759445,19.457216},"hotel3",130));
+        hotels.add(new Hotel("testowy","desc1",new double[]{51.759445,19.457216},"hotel1",50,"Łódź"));
+        hotels.add(new Hotel("testowy2","desc2",new double[]{51.759445,19.457216},"hotel2",70,"Warszawa"));
+        hotels.add(new Hotel("testowy3","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Gdynia"));
     }
 
     public static Hotel findHotelById(String id) {

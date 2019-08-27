@@ -13,6 +13,8 @@ public class Hotel implements Serializable {
     private String imgSrc;
 
     private int costPerPerson;
+
+    private String place;
     //todo + address
 
     public Hotel(String name, String desc, double[] coords, String imgSrc) {
@@ -30,6 +32,15 @@ public class Hotel implements Serializable {
         this.coords = coords;
         this.imgSrc = imgSrc;
         this.costPerPerson = costPerPerson;
+    }
+
+    public Hotel(String name, String desc, double[] coords, String imgSrc, int costPerPerson, String place) {
+        this.name = name;
+        this.desc = desc;
+        this.coords = coords;
+        this.imgSrc = imgSrc;
+        this.costPerPerson = costPerPerson;
+        this.place = place;
     }
 
     public String getName() {
@@ -54,5 +65,9 @@ public class Hotel implements Serializable {
 
     public int getCostPerPerson() {
         return costPerPerson;
+    }
+
+    public String getPlace() {
+        return place;
     }
 }
