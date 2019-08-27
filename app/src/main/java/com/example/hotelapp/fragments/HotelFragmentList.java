@@ -80,10 +80,17 @@ public class HotelFragmentList extends Fragment {
             if ( getArguments() == null)
                 recyclerView.setAdapter(new MyHotelRecyclerViewAdapter(HotelService.hotels, mListener,context));
             else {
-                Map<String,Object> testMap = new HashMap<>();
-                testMap.put("COST",50);
+
+                Map<String,String> filters = new HashMap<>();
+                if ( getArguments().getString("COST") != null )
+                    filters.put("COST", getArguments().getString("COST"));
+                if ( getArguments().getString("NAME") != null )
+                    filters.put("NAME", getArguments().getString("NAME"));
+                if ( getArguments().getString("PLACE") != null )
+                    filters.put("PLACE", getArguments().getString("PLACE"));
+
                 recyclerView
-                        .setAdapter(new MyHotelRecyclerViewAdapter(HotelService.filterBy(testMap), mListener, context));
+                        .setAdapter(new MyHotelRecyclerViewAdapter(HotelService.filterBy(filters), mListener, context));
             }
 
             }

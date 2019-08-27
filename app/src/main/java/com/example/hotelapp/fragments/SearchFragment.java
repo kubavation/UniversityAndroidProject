@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.hotelapp.R;
 
@@ -82,7 +83,24 @@ public class SearchFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
+                EditText costInput = mView.findViewById(R.id.cost);
+                EditText nameInput = mView.findViewById(R.id.hotel_name);
+                EditText placeInput = mView.findViewById(R.id.place);
+
+                System.out.println(costInput.getText());
+                System.out.println(nameInput.getText());
+                System.out.println(placeInput.getText());
+
                 Bundle bundle = new Bundle();
+
+                if ( costInput.getText().toString().trim().length() > 0 )
+                    bundle.putString("COST",costInput.getText().toString());
+                if ( nameInput.getText().toString().trim().length() > 0 )
+                    bundle.putString("NAME",nameInput.getText().toString());
+                if ( placeInput.getText().toString().trim().length() > 0 )
+                    bundle.putString("PLACE",placeInput.getText().toString());
+
+
                 HotelFragmentList fragment = new HotelFragmentList();
                 fragment.setArguments(bundle);
                 System.out.println("SENT TO LIST");

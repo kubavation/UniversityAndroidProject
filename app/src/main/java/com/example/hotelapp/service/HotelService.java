@@ -32,17 +32,24 @@ public class HotelService {
     }
 
 
-    public static List<Hotel> filterBy(Map<String,Object> filters) {
+    public static List<Hotel> filterBy(Map<String,String> filters) {
+
+
+        System.out.println("filterss: ");
+        for (Map.Entry<String, String> filter: filters.entrySet()) {
+            System.out.println(filter.getKey() + " |  " + filter.getValue());
+        }
+        System.out.println("end filters.");
+
 
         List<Hotel> result = new ArrayList<>();
         //todo add temp list
-        for (Map.Entry<String, Object> filter: filters.entrySet()) {
+        for (Map.Entry<String, String> filter: filters.entrySet()) {
 
-            //todo cost od / cost do
             if ( filter.getKey().equals("COST") ) {
 
                 for ( Hotel hotel : hotels) {
-                    if ( hotel.getCostPerPerson() <= (int) filter.getValue() ) {
+                    if ( hotel.getCostPerPerson() <=  Integer.parseInt(filter.getValue()) ) {
                         result.add(hotel);
                     }
                 }
