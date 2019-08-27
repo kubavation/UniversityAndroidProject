@@ -41,18 +41,33 @@ public class HotelService {
         }
         System.out.println("end filters.");
 
-
         List<Hotel> result = new ArrayList<>();
-        //todo add temp list
-        for (Map.Entry<String, String> filter: filters.entrySet()) {
 
-            if ( filter.getKey().equals("COST") ) {
+        for (Hotel hotel : hotels) {
 
-                for ( Hotel hotel : hotels) {
-                    if ( hotel.getCostPerPerson() <=  Integer.parseInt(filter.getValue()) ) {
-                        result.add(hotel);
-                    }
+            System.out.println(hotel);
+            int count = 0;
+
+            if ( filters.containsKey("COST") ) {
+                if(hotel.getCostPerPerson() <= Integer.parseInt(filters.get("COST")) ) {
+                    count++;
                 }
+            }
+
+            if ( filters.containsKey("NAME") ) {
+                if(hotel.getName().equalsIgnoreCase(filters.get("NAME"))  ) {
+                    count++;
+                }
+            }
+
+            if ( filters.containsKey("PLACE") ) {
+                if(hotel.getPlace().equalsIgnoreCase(filters.get("PLACE")) ) {
+                    count++;
+                }
+            }
+
+            if ( count == filters.size() ) {
+                result.add(hotel);
             }
 
         }
