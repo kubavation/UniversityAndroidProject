@@ -16,6 +16,9 @@ public class HotelService {
         hotels.add(new Hotel("testowy","desc1",new double[]{51.759445,19.457216},"hotel1",50,"Łódź"));
         hotels.add(new Hotel("testowy2","desc2",new double[]{51.759445,19.457216},"hotel2",70,"Warszawa"));
         hotels.add(new Hotel("testowy3","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Gdynia"));
+        hotels.add(new Hotel("testowy3","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Gdańsk"));
+        hotels.add(new Hotel("testowy3","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Szczecin"));
+        hotels.add(new Hotel("testowy3","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Zgierz"));
     }
 
     public static Hotel findHotelById(String id) {
