@@ -60,6 +60,9 @@ public class MainActivity extends AppCompatActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        //init with home
+        addFragment(new HomeFragment(),true,"home_fragment");
+
         getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
             @Override
             public void onBackStackChanged() {
@@ -90,13 +93,12 @@ public class MainActivity extends AppCompatActivity
 
         FragmentManager fm = getSupportFragmentManager();
 
-        //todo add if current fragment is list then back button redirects to home fragment etc !
-        fm.popBackStack();
+        if(fm.getBackStackEntryCount() > 1)
+            fm.popBackStack();
 
-    //        System.out.println(fm.getFragments().isEmpty());
-    //        if(fm.getFragments().isEmpty()) {
-    //            addFragment(new HomeFragment(), true, "s");
-    //        }
+        System.out.println("-----");
+        //todo add if current fragment is list then back button redirects to home fragment etc !
+
 
         return super.onOptionsItemSelected(item);
     }
