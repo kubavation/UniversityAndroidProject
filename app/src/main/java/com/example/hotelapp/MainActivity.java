@@ -71,7 +71,20 @@ public class MainActivity extends AppCompatActivity
 
                 Fragment home_fragment = getSupportFragmentManager().findFragmentByTag("home_fragment");
                 if ( home_fragment != null && home_fragment.isVisible()) {
+                    System.out.println("HERE 1");
                     navView.getMenu().getItem(0).setChecked(true);
+                }
+
+                Fragment fragment_list = getSupportFragmentManager().findFragmentByTag("list_fragment");
+                if ( fragment_list != null && fragment_list.isVisible()) {
+                    System.out.println("HERE 2");
+                    navView.getMenu().getItem(1).setChecked(true);
+                }
+
+                Fragment fragment_search = getSupportFragmentManager().findFragmentByTag("search_fragment");
+                if ( fragment_search != null && fragment_search.isVisible()) {
+                    System.out.println("HERE 3");
+                    navView.getMenu().getItem(2).setChecked(true);
                 }
 
 
