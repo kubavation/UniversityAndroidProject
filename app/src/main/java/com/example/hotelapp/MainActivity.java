@@ -92,6 +92,13 @@ public class MainActivity extends AppCompatActivity
                     navView.getMenu().getItem(2).setChecked(true);
                 }
 
+                Fragment info_fragment = getSupportFragmentManager().findFragmentByTag("info_fragment");
+                if ( info_fragment != null && info_fragment.isVisible()) {
+                    System.out.println("HERE 4");
+                    navView.getMenu().getItem(3).setChecked(true);
+                }
+
+
 
             }
         });
