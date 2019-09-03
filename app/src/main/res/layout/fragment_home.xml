@@ -35,33 +35,33 @@
         android:textColor="@color/colorAccent"
         android:textSize="40sp" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="140dp"
-        android:layout_height="66dp"
+    <!--<Button-->
+        <!--android:id="@+id/button2"-->
+        <!--android:layout_width="140dp"-->
+        <!--android:layout_height="66dp"-->
 
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="133dp"
-        android:layout_marginTop="361dp"
-        android:layout_marginEnd="138dp"
-        android:background="#8FFF0000"
-        android:text="Zaloguj się"
-        android:textColor="#fff" />
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginStart="133dp"-->
+        <!--android:layout_marginTop="361dp"-->
+        <!--android:layout_marginEnd="138dp"-->
+        <!--android:background="#8FFF0000"-->
+        <!--android:text="Zaloguj się"-->
+        <!--android:textColor="#fff" />-->
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="141dp"
-        android:layout_height="79dp"
-        android:layout_below="@+id/button2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="135dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="135dp"
-        android:background="#8FFF0000"
-        android:text="Załóż konto"
-        android:textColor="#fff" />
+    <!--<Button-->
+        <!--android:id="@+id/button4"-->
+        <!--android:layout_width="141dp"-->
+        <!--android:layout_height="79dp"-->
+        <!--android:layout_below="@+id/button2"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:layout_marginStart="135dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_marginEnd="135dp"-->
+        <!--android:background="#8FFF0000"-->
+        <!--android:text="Załóż konto"-->
+        <!--android:textColor="#fff" />-->
 
 </RelativeLayout>
