@@ -13,12 +13,12 @@ public class HotelService {
     public static List<Hotel> hotels = new ArrayList<>();
 
     static {
-        hotels.add(new Hotel("testowy","desc1",new double[]{51.759445,19.457216},"hotel1",50,"Łódź"));
-        hotels.add(new Hotel("testowy2","desc2",new double[]{51.759445,19.457216},"hotel2",70,"Warszawa"));
-        hotels.add(new Hotel("testowy3","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Gdynia"));
-        hotels.add(new Hotel("testowy3","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Gdańsk"));
-        hotels.add(new Hotel("testowy3","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Szczecin"));
-        hotels.add(new Hotel("testowy3","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Zgierz"));
+        hotels.add(new Hotel("Hotel bałucki","desc1",new double[]{51.759445,19.457216},"hotel1",50,"Łódź, Zachodnia 16"));
+        hotels.add(new Hotel("Hotel Hilton","desc2",new double[]{51.759445,19.457216},"hotel2",70,"Warszawa, 11 Listopada 5"));
+        hotels.add(new Hotel("Hotel Złota Rybka","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Gdynia, Pomorska 15"));
+        hotels.add(new Hotel("Hotel Mors","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Gdańsk, Długa 22"));
+        hotels.add(new Hotel("Hotel Paprykarz","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Szczecin, Górna 2"));
+        hotels.add(new Hotel("Hotel Zgierzok","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Zgierz, Ozorkowska 12"));
     }
 
     public static Hotel findHotelById(String id) {
