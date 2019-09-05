@@ -13,12 +13,25 @@ public class HotelService {
     public static List<Hotel> hotels = new ArrayList<>();
 
     static {
-        hotels.add(new Hotel("Hotel bałucki","desc1",new double[]{51.759445,19.457216},"hotel1",50,"Łódź, Zachodnia 16"));
-        hotels.add(new Hotel("Hotel Hilton","desc2",new double[]{51.759445,19.457216},"hotel2",70,"Warszawa, 11 Listopada 5"));
-        hotels.add(new Hotel("Hotel Złota Rybka","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Gdynia, Pomorska 15"));
-        hotels.add(new Hotel("Hotel Mors","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Gdańsk, Długa 22"));
-        hotels.add(new Hotel("Hotel Paprykarz","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Szczecin, Górna 2"));
-        hotels.add(new Hotel("Hotel Zgierzok","desc3",new double[]{51.759445,19.457216},"hotel3",130,"Zgierz, Ozorkowska 12"));
+        String desc = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et viverra urna, " +
+                "non convallis tellus. Vivamus molestie erat arcu, et aliquet urna ultricies ut. " +
+                "Sed euismod lectus quis sagittis egestas. Morbi in libero venenatis, pharetra nibh a, " +
+                "posuere massa. Nam placerat dui tortor, nec vestibulum diam consectetur ut. Praesent nec orci ante. Donec fermentum in " +
+                "sem vitae pretium. Morbi interdum vel metus ac blandit. Ut dictum molestie turpis. Phasellus vitae suscipit urna. " +
+                "Maecenas dapibus cursus turpis, eget porttitor enim placerat sit amet. Vivamus rutrum ex eget ipsum auctor semper. " +
+                "Mauris id placerat magna. Praesent rutrum tellus vitae commodo faucibus.";
+        hotels.add(new Hotel("Hotel bałucki",desc,new double[]{51.759445,19.457216},
+                "hotel1",100,"Łódź, Zachodnia 16","555 333 222"));
+        hotels.add(new Hotel("Hotel Hilton",desc,new double[]{51.759445,19.457216},
+                "hotel2",70,"Warszawa, 11 Listopada 5","532 111 211"));
+        hotels.add(new Hotel("Hotel Złota Rybka",desc,new double[]{51.759445,19.457216},
+                "hotel3",130,"Gdynia, Pomorska 15","112 998 276"));
+        hotels.add(new Hotel("Hotel Mors",desc,new double[]{51.759445,19.457216},
+                "hotel3",90,"Gdańsk, Długa 22","875 632 111"));
+        hotels.add(new Hotel("Hotel Paprykarz",desc,new double[]{51.759445,19.457216},
+                "hotel3",65,"Szczecin, Górna 2","992 226 745"));
+        hotels.add(new Hotel("Hotel Zgierzok",desc,new double[]{51.759445,19.457216},
+                "hotel3",110,"Zgierz, Ozorkowska 12","548 765 002"));
     }
 
     public static Hotel findHotelById(String id) {
