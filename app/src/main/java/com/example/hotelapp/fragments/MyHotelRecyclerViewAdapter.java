@@ -108,7 +108,8 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).getName());
-        holder.mContentView.setText(mValues.get(position).getDesc());
+        holder.mContentView.setText(mValues.get(position).getPlace());
+        holder.mCostView.setText("Cena: " + mValues.get(position).getCostPerPerson() + ".00 PLN");
 
         int img = context.getResources().getIdentifier(mValues.get(position).getImgSrc()
                 , "drawable", context.getPackageName());
@@ -149,6 +150,7 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
         public final TextView mIdView;
         public final TextView mContentView;
         public final ImageView imgView;
+        public final TextView mCostView;
        /// public final TextView mId;
         public Hotel mItem;
 
@@ -158,7 +160,7 @@ public class MyHotelRecyclerViewAdapter extends RecyclerView.Adapter<MyHotelRecy
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
             imgView = view.findViewById(R.id.imageView2);
-
+            mCostView = view.findViewById(R.id.cost);
           //  mId = view.findViewById(R.id.id);
         }
 

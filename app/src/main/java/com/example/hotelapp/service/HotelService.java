@@ -20,6 +20,7 @@ public class HotelService {
                 "sem vitae pretium. Morbi interdum vel metus ac blandit. Ut dictum molestie turpis. Phasellus vitae suscipit urna. " +
                 "Maecenas dapibus cursus turpis, eget porttitor enim placerat sit amet. Vivamus rutrum ex eget ipsum auctor semper. " +
                 "Mauris id placerat magna. Praesent rutrum tellus vitae commodo faucibus.";
+
         hotels.add(new Hotel("Hotel bałucki",desc,new double[]{51.759445,19.457216},
                 "hotel1",100,"Łódź, Zachodnia 16","555 333 222"));
         hotels.add(new Hotel("Hotel Hilton",desc,new double[]{51.759445,19.457216},

@@ -2,6 +2,7 @@
 
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/direction_card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -10,44 +11,42 @@
     card_view:cardBackgroundColor="#fff"
     card_view:cardUseCompatPadding="true">
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-
-    tools:context=".fragments.HomeFragment">
-
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="100dp"
-        android:layout_height="161dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="-2dp" />
-
-
-    <TextView
-        android:id="@+id/item_number"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView2"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="@dimen/text_margin"
-        android:fontFamily="sans-serif-medium"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="40sp" />
+        android:layout_height="500dp"
 
-    <!--<TextView-->
+        tools:context=".fragments.HomeFragment">
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="161dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="10dp" />
+
+
+        <TextView
+            android:id="@+id/item_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView2"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:fontFamily="sans-serif-medium"
+            android:textAlignment="center"
+            android:textColor="#cc1b2f"
+            android:textSize="40sp" />
+
+        <!--<TextView-->
         <!--android:id="@+id/content"-->
         <!--android:layout_width="399dp"-->
         <!--android:layout_height="99dp"-->
@@ -64,31 +63,47 @@
         <!--android:textColor="@color/colorAccent"-->
         <!--android:textSize="12sp" />-->
 
-    <TextView
-        android:id="@+id/content"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:layout_below="@+id/item_number"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="@dimen/text_margin"
-        android:fontFamily="sans-serif-medium"
-        android:textAlignment="center"
-        android:textColor="@color/colorAccent"
-        android:textSize="12sp" />
+        <TextView
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:layout_below="@+id/item_number"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:fontFamily="sans-serif-medium"
+            android:textAlignment="center"
+            android:textColor="#cc1b2f"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/cost"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            android:layout_below="@+id/content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="sans-serif-medium"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#cc1b2f"
+            android:textSize="22sp" />
 
 
-    <!--<TextView-->
+        <!--<TextView-->
         <!--android:id="@+id/item_number"-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:layout_margin="@dimen/text_margin"-->
         <!--android:textAppearance="?attr/textAppearanceListItem" />-->
 
-    <!--<TextView-->
+        <!--<TextView-->
         <!--android:id="@+id/content"-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
@@ -98,7 +113,7 @@
         <!--android:layout_marginTop="138dp"-->
         <!--android:textAppearance="?attr/textAppearanceListItem" />-->
 
-    <!--<TextView-->
+        <!--<TextView-->
         <!--android:id="@+id/id"-->
         <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
@@ -106,8 +121,8 @@
         <!--android:layout_alignParentEnd="true"-->
         <!--android:layout_marginEnd="0dp"-->
         <!--android:textAppearance="?attr/textAppearanceListItem" />-->
-    <!---->
+        <!---->
 
-</RelativeLayout>
+    </RelativeLayout>
 
 </android.support.v7.widget.CardView>
