@@ -16,6 +16,9 @@ public class Hotel implements Serializable {
     private String place;
     private String phoneNumber;
 
+    private int minimalCostPerPerson;
+    
+
     public Hotel(String name, String desc, double[] coords, String imgSrc) {
         this.id = UUID.randomUUID().toString();
         this.name = name;
@@ -82,5 +85,9 @@ public class Hotel implements Serializable {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public int getMinimalCostPerPerson() {
+        return minimalCostPerPerson;
     }
 }
