@@ -28,17 +28,17 @@ public class HotelService {
          */
 
         hotels.add(new Hotel("Hotel bałucki",desc,new double[]{51.781803,19.450916},
-                "hotel1",100,"Łódź, Zachodnia 16","555 333 222"));
+                "hotel1",100,"Łódź, Zachodnia 16","555 333 222","Łódź"));
         hotels.add(new Hotel("Hotel Hilton",desc,new double[]{52.263378,21.038203},
-                "hotel2",70,"Warszawa, 11 Listopada 5","532 111 211"));
+                "hotel2",70,"Warszawa, 11 Listopada 5","532 111 211","Warszawa"));
         hotels.add(new Hotel("Hotel Złota Rybka",desc,new double[]{54.511329,18.529943},
-                "hotel3",130,"Gdynia, Pomorska 15","112 998 276"));
+                "hotel3",130,"Gdynia, Pomorska 15","112 998 276","Gdynia"));
         hotels.add(new Hotel("Hotel Mors",desc,new double[]{54.349128,18.650776},
-                "hotel3",90,"Gdańsk, Długa 22","875 632 111"));
+                "hotel3",90,"Gdańsk, Długa 22","875 632 111","Gdańsk"));
         hotels.add(new Hotel("Hotel Paprykarz",desc,new double[]{53.477106,14.583019},
-                "hotel3",65,"Szczecin, Górna 2","992 226 745"));
+                "hotel3",65,"Szczecin, Górna 2","992 226 745","Szczecin"));
         hotels.add(new Hotel("Hotel Zgierzok",desc,new double[]{51.869780,19.396657},
-                "hotel3",110,"Zgierz, Ozorkowska 12","548 765 002"));
+                "hotel3",110,"Zgierz, Ozorkowska 12","548 765 002","Zgierz"));
     }
 
     public static Hotel findHotelById(String id) {

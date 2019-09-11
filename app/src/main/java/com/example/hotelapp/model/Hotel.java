@@ -70,7 +70,7 @@ public class Hotel implements Serializable {
 
     public Hotel(String name, String desc, double[] coords,
                  String imgSrc, int costPerPerson, String place,
-                 String phoneNumber, int minimalCostPerPerson, String city) {
+                 String phoneNumber,String city) {
         this.name = name;
         this.desc = desc;
         this.coords = coords;
@@ -78,7 +78,6 @@ public class Hotel implements Serializable {
         this.costPerPerson = costPerPerson;
         this.place = place;
         this.phoneNumber = phoneNumber;
-        this.minimalCostPerPerson = minimalCostPerPerson;
         this.city = city;
     }
 
