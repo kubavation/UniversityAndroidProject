@@ -57,13 +57,6 @@ public class HotelService {
 
     public static List<Hotel> filterBy(Map<String,String> filters) {
 
-
-        System.out.println("filterss: ");
-        for (Map.Entry<String, String> filter: filters.entrySet()) {
-            System.out.println(filter.getKey() + " |  " + filter.getValue());
-        }
-        System.out.println("end filters.");
-
         List<Hotel> result = new ArrayList<>();
 
         for (Hotel hotel : hotels) {
@@ -84,7 +77,7 @@ public class HotelService {
             }
 
             if ( filters.containsKey("PLACE") ) {
-                if(hotel.getPlace().equalsIgnoreCase(filters.get("PLACE")) ) {
+                if(hotel.getCity().equalsIgnoreCase(filters.get("PLACE")) ) {
                     count++;
                 }
             }

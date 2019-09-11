@@ -87,10 +87,6 @@ public class SearchFragment extends Fragment {
                 EditText nameInput = mView.findViewById(R.id.hotel_name);
                 EditText placeInput = mView.findViewById(R.id.place);
 
-                System.out.println(costInput.getText());
-                System.out.println(nameInput.getText());
-                System.out.println(placeInput.getText());
-
                 Bundle bundle = new Bundle();
 
                 if ( costInput.getText().toString().trim().length() > 0 )
