@@ -36,9 +36,16 @@ public class HotelService {
         hotels.add(new Hotel("Hotel Mors",desc,new double[]{54.349128,18.650776},
                 "hotel3",90,"Gdańsk, Długa 22","875 632 111","Gdańsk"));
         hotels.add(new Hotel("Hotel Paprykarz",desc,new double[]{53.477106,14.583019},
-                "hotel3",65,"Szczecin, Górna 2","992 226 745","Szczecin"));
+                "hotel2",65,"Szczecin, Górna 2","992 226 745","Szczecin"));
         hotels.add(new Hotel("Hotel Zgierzok",desc,new double[]{51.869780,19.396657},
-                "hotel3",110,"Zgierz, Ozorkowska 12","548 765 002","Zgierz"));
+                "hotel1",110,"Zgierz, Ozorkowska 12","548 765 002","Zgierz"));
+
+        hotels.add(new Hotel("Hotel Warszawski",desc,new double []{52.184862,20.958238},
+                "hotel1",100,"Warszawa, 17 Stycznia 3","348 765 002","Warszawa"));
+        hotels.add(new Hotel("Hotel Sierpniowy",desc,new double[]{52.191393,20.980994},
+                "hotel3",90,"Warszawa, 1 Sierpnia 11","548 765 002","Warszawa"));
+        hotels.add(new Hotel("Hotel Testowy",desc,new double[]{54.519778,18.533770},
+                "hotel1",130,"Gdynia, 10 Lutego 12","528 765 002","Gdynia"));
     }
 
     public static Hotel findHotelById(String id) {
